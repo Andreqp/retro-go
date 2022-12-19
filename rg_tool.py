@@ -13,7 +13,8 @@ import os
 
 try:
     sys.path.append(os.path.join(os.environ["IDF_PATH"], "components", "partition_table"))
-    import serial, parttool, gen_esp32part
+    #import serial, parttool, gen_esp32part
+    import parttool, gen_esp32part
 except:
     pass
 
