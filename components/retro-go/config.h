@@ -12,6 +12,8 @@
 #include "targets/mrgc-gbm/config.h"
 #elif defined(RG_TARGET_ESPLAY_S3)
 #include "targets/esplay-s3/config.h"
+#elif defined(RG_TARGET_CUSTOM_S3)
+#include "targets/custom-s3/config.h"
 #else
 #warning "No target defined. Defaulting to ODROID-GO."
 #include "targets/odroid-go/config.h"
