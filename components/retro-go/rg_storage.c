@@ -93,12 +93,12 @@ void rg_storage_init(void)
 
     esp_vfs_fat_mount_config_t mount_config = {.max_files = 8};
 
-    esp_err_t err = esp_vfs_fat_sdmmc_mount(RG_STORAGE_ROOT, &host_config, &slot_config, &mount_config, NULL);
+    esp_err_t err = esp_vfs_fat_sdspi_mount(RG_STORAGE_ROOT, &host_config, &slot_config, &mount_config, NULL);
     if (err == ESP_ERR_TIMEOUT || err == ESP_ERR_INVALID_RESPONSE || err == ESP_ERR_INVALID_CRC)
     {
         RG_LOGW("SD Card mounting failed (0x%x), retrying at lower speed...\n", err);
         host_config.max_freq_khz = SDMMC_FREQ_PROBING;
-        err = esp_vfs_fat_sdmmc_mount(RG_STORAGE_ROOT, &host_config, &slot_config, &mount_config, NULL);
+        err = esp_vfs_fat_sdspi_mount(RG_STORAGE_ROOT, &host_config, &slot_config, &mount_config, NULL);
     }
     error_code = err;
 
